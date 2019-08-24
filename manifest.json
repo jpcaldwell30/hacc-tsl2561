@@ -1,0 +1,8 @@
+{
+  "domain": "tsl2561",
+  "name": "Tsl2561 Luminosity Sensor",
+  "documentation": "https://github.com/home-assistant/example-custom-config/",
+  "dependencies": [],
+  "codeowners": [],
+  "requirements": []
+}
