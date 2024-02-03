@@ -1,8 +1,10 @@
 {
   "domain": "tsl2561",
   "name": "Tsl2561 Luminosity Sensor",
-  "documentation": "https://github.com/home-assistant/example-custom-config/",
+  "documentation": "https://github.com/jpcaldwell30/hacc-tsl2561",
+  "iot_class": "local_polling",
   "dependencies": [],
-  "codeowners": [],
-  "requirements": []
+  "codeowners": ["@jpcaldwell30"],
+  "requirements": [],
+  "version": "0.1.0"
 }
