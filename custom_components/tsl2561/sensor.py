@@ -38,7 +38,7 @@ class Tsl2561Sensor(RestoreEntity):
     @property
     def name(self):
         """Return the name of the sensor."""
-        return 'Luminosita'
+        return 'TSL2561'
 
     @property
     def state(self):
