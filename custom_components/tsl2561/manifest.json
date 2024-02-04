@@ -3,7 +3,7 @@
   "name": "Tsl2561 Luminosity Sensor",
   "documentation": "https://github.com/jpcaldwell30/hacc-tsl2561",
   "iot_class": "local_polling",
-  "dependencies": ["smbus2"],
+  "dependencies": ["RPi.GPIO"],
   "codeowners": ["@jpcaldwell30"],
   "requirements": [],
   "version": "0.1.0"
