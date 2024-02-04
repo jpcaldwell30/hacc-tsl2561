@@ -6,9 +6,11 @@ import RPi.GPIO as GPIO
 import voluptuous as vol
 import time
 
+DOMAIN = 'tsl2561'
+
 CONFIG_SCHEMA = vol.Schema({
     DOMAIN: vol.Schema({
-        vol.Required(CONF_PIN_NUMBER, default=27): cv.positive_int,
+        vol.Required("CONF_PIN_NUMBER", default=27): cv.positive_int,
     })
 })
 
