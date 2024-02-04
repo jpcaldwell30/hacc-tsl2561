@@ -11,6 +11,6 @@ Add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: tsl2561
-  pin_number: 27 #default
+  - platform: tsl2561
+    pin_number: 27 #default
 ```
