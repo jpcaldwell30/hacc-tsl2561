@@ -1,6 +1,6 @@
 # TSL2561 Luminosity Sensor
 
-This is a minimum implementation of an integration providing a sensor measurement.
+Reads luminosity using a TSL2561 luminosity sensor
 
 ### Installation
 
