@@ -8,7 +8,7 @@ Copy this folder to `<config_dir>/custom_components/tsl2561/`.
 
 Add the following to your `configuration.yaml` file:
 
-```yaml
 # Example configuration.yaml entry
+
 sensor:
-  - platform: tsl2561```
+  - platform: tsl2561
