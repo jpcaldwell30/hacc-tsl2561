@@ -57,7 +57,7 @@ class Tsl2561Sensor(RestoreEntity):
         self.tsl.gain = 0
 
         # Set integration time (0=13.7ms, 1=101ms, 2=402ms, or 3=manual)
-        self.tsl.integration_time = 1
+        self.tsl.integration_time = 2
 
         # Get raw (luminosity) readings individually
         broadband = self.tsl.broadband
