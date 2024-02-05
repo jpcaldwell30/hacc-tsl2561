@@ -1,4 +1,4 @@
-# TSL2561 luminosity Sensor
+# TSL2561 Luminosity Sensor
 
 This is a minimum implementation of an integration providing a sensor measurement.
 
