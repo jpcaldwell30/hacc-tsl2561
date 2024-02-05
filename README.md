@@ -1,6 +1,6 @@
 # TSL2561 Luminosity Sensor
 
-Reads luminosity using a TSL2561 luminosity sensor
+Reads luminosity using a TSL2561 luminosity sensor connected to a Raspberry Pi
 
 ### Installation
 
