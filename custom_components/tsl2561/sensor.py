@@ -65,6 +65,7 @@ class Tsl2561Sensor(RestoreEntity):
 
         # Get computed lux value (tsl.lux can return None or a float)
         lux = self.tsl.lux
+        lux= round(lux, 2)
 
         # Disble the light sensor (to save power)
         self.tsl.enabled = False
@@ -75,5 +76,5 @@ class Tsl2561Sensor(RestoreEntity):
             "broadband": broadband,
             "infrared": infrared,
         }
-        
+
         return lux, attributes
