@@ -1,5 +1,5 @@
 {
-    "name": "Tsl2561 Luminosity Sensor",
+    "name": "TSL2561 Luminosity Sensor",
     "render_readme": true,
     "iot_class": "local_polling",
     "homeassistant": "2023.10.0"

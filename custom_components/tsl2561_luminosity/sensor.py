@@ -7,7 +7,7 @@ import board
 import busio
 import adafruit_tsl2561
 
-DOMAIN = 'tsl2561'
+DOMAIN = 'tsl2561_luminosity'
 
 def setup_platform(hass, config, add_entities, discovery_info=None):
     """Set up the sensor platform."""

@@ -1,0 +1,1 @@
+"""Custom component to return TSL2561 luminosity"""
