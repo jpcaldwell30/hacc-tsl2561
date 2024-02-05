@@ -17,7 +17,7 @@ the integration will be available to install like any other.
 
 or...
 
-Copy this folder to `<config_dir>/custom_components/tsl2561/`.
+Copy this folder to `<config_dir>/custom_components/tsl2561_luminosity/`.
 
 ### Example configuration.yaml entry
 
@@ -26,5 +26,5 @@ Add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: tsl2561
+  platform: tsl2561_luminosity
 ```
