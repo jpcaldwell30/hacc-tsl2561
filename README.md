@@ -1,4 +1,4 @@
-# TSL2561 luminosity Sensor
+# TSL2561 Luminosity Sensor
 
 This is a minimum implementation of an integration providing a sensor measurement.
 
@@ -13,7 +13,7 @@ follow the [instructions for adding a custom
 repository](https://hacs.xyz/docs/faq/custom_repositories) and then
 the integration will be available to install like any other.
 
-[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=make-all&repository=ds18b20_temperature&category=integration)
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=make-all&repository=tsl2561_luminosity&category=integration)
 
 or...
 
