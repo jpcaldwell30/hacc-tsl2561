@@ -1,7 +1,7 @@
 {
   "domain": "tsl2561_luminosity",
   "name": "Tsl2561 Luminosity Sensor",
-  "documentation": "https://github.com/jpcaldwell30/hacc-tsl2561",
+  "documentation": "https://github.com/jpcaldwell30/tsl2561_luminosity",
   "iot_class": "local_polling",
   "dependencies": [],
   "codeowners": ["@jpcaldwell30"],
