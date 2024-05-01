@@ -1,6 +1,7 @@
 """Platform for sensor integration."""
 from homeassistant.helpers.restore_state import RestoreEntity
 from homeassistant.helpers import config_validation as cv
+from homeassistant.components.sensor import SensorDeviceClass
 import voluptuous as vol
 import time
 import board
@@ -19,8 +20,7 @@ class Tsl2561Sensor(RestoreEntity):
 
     def __init__(self):
         """Initialize the sensor."""
-        i2c = busio.I2C(board.SCL, board.SDA)
-        self.tsl = adafruit_tsl2561.TSL2561(i2c)
+        self._attr_device_class = SensorDeviceClass.TEMPERATURE
         self._state = None
         self._attributes = {}
 
@@ -43,6 +43,11 @@ class Tsl2561Sensor(RestoreEntity):
     def extra_state_attributes(self):
         """Return the state attributes."""
         return self._attributes
+        
+    @property
+    def icon(self):
+        """Return the icon for the sensor."""
+        return "mdi:brightness-6" 
 
     def update(self):
         """Fetch new state data for the sensor."""
@@ -50,30 +55,30 @@ class Tsl2561Sensor(RestoreEntity):
 
     def _lightcheck(self):
         # Enable the light sensor
-        self.tsl.enabled = True
-        time.sleep(1)
-
-        # Set gain 0=1x, 1=16x
-        self.tsl.gain = 0
-
-        # Set integration time (0=13.7ms, 1=101ms, 2=402ms, or 3=manual)
-        self.tsl.integration_time = 2
-
         # Get raw (luminosity) readings individually
-        broadband = self.tsl.broadband
-        infrared = self.tsl.infrared
+        i2c = busio.I2C(board.SCL, board.SDA)
+        tsl = adafruit_tsl2561.TSL2561(i2c)
+        tsl.enabled = True
+        # Set gain 0=1x, 1=16x
+        tsl.gain = 0
+        # Set integration time (0=13.7ms, 1=101ms, 2=402ms, or 3=manual)
+        tsl.integration_time = 1
+        broadband = tsl.broadband
+        infrared = tsl.infrared
 
         # Get computed lux value (tsl.lux can return None or a float)
-        lux = self.tsl.lux
+        lux = tsl.lux
         if lux:
             lux= round(lux, 2)
+        else:
+            lux = 0
 
         # Disble the light sensor (to save power)
-        self.tsl.enabled = False
+        #self.tsl.enabled = False
 
         attributes = {
-            "gain": self.tsl.gain,
-            "integration_time": self.tsl.integration_time,
+            "gain": tsl.gain,
+            "integration_time": tsl.integration_time,
             "broadband": broadband,
             "infrared": infrared,
         }
