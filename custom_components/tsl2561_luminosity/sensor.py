@@ -69,7 +69,7 @@ class Tsl2561Sensor(RestoreEntity):
         # Get computed lux value (tsl.lux can return None or a float)
         lux = tsl.lux
         if lux:
-            lux= round(lux, 2)
+            lux= round(lux, 0)
         else:
             lux = 0
 
