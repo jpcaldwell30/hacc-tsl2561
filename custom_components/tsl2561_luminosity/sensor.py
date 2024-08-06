@@ -4,9 +4,7 @@ from homeassistant.helpers import config_validation as cv
 from homeassistant.components.sensor import SensorDeviceClass
 import voluptuous as vol
 import time
-import board
-import busio
-import adafruit_tsl2561
+from tsl2561 import TSL2561
 
 DOMAIN = 'tsl2561_luminosity'
 
@@ -20,7 +18,7 @@ class Tsl2561Sensor(RestoreEntity):
 
     def __init__(self):
         """Initialize the sensor."""
-        self._attr_device_class = SensorDeviceClass.TEMPERATURE
+        self._attr_device_class = SensorDeviceClass.ILLUMINANCE
         self._state = None
         self._attributes = {}
 
@@ -54,33 +52,12 @@ class Tsl2561Sensor(RestoreEntity):
         self._state, self._attributes = self._lightcheck()
 
     def _lightcheck(self):
-        # Enable the light sensor
-        # Get raw (luminosity) readings individually
-        i2c = busio.I2C(board.SCL, board.SDA)
-        tsl = adafruit_tsl2561.TSL2561(i2c)
-        tsl.enabled = True
-        # Set gain 0=1x, 1=16x
-        tsl.gain = 0
-        # Set integration time (0=13.7ms, 1=101ms, 2=402ms, or 3=manual)
-        tsl.integration_time = 1
-        broadband = tsl.broadband
-        infrared = tsl.infrared
-
-        # Get computed lux value (tsl.lux can return None or a float)
-        lux = tsl.lux
-        if lux:
-            lux= round(lux, 0)
-        else:
-            lux = 0
-
-        # Disble the light sensor (to save power)
-        #self.tsl.enabled = False
+        tsl = TSL2561(integration_time=0x01, busnum=1)
+        lux = tsl.lux()
 
         attributes = {
             "gain": tsl.gain,
             "integration_time": tsl.integration_time,
-            "broadband": broadband,
-            "infrared": infrared,
         }
 
         return lux, attributes
